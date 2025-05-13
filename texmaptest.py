@@ -67,7 +67,7 @@ p = figure(
         tooltips=[("", "@gemeinde")],
         width=1572//2,  #og width=1572//2,
         height=966//2,  #og height=966//2,
-        aspect_scale=0.75,
+        aspect_scale=0.68,
         match_aspect=True
     )
 
