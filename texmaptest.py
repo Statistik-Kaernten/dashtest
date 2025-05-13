@@ -5,7 +5,9 @@ from bokeh.sampledata.unemployment import data as unemployment
 from bokeh.sampledata.us_counties import data as counties
 from bokeh.layouts import column
 from streamlit_bokeh import streamlit_bokeh
+import streamlit as st
 
+st.set_page_config(page_title="Koralmbahnregion-Index Überblick", layout="wide")
 palette = tuple(reversed(palette))
 
 counties = {
