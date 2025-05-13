@@ -58,20 +58,22 @@ source = ColumnDataSource(data=dict(
     ))
 
     
-    # Create a Bokeh figure OG!!!
+# Create a Bokeh figure OG!!!
 p = figure(
         title="",
         tools="",
         x_axis_location=None, 
         y_axis_location=None,
         tooltips=[("", "@gemeinde")],
-        width=1572//2, 
-        height=966//2
+        width=1572//2,  #og width=1572//2,
+        height=966//2,  #og height=966//2,
+        aspect_scale=0.75,
+        match_aspect=True
     )
 
 p.grid.grid_line_color = None
     
-    # Add patches to the figure
+# Add patches to the figure
 patches = p.patches(
         'x', 
         'y', 
@@ -83,22 +85,16 @@ patches = p.patches(
     )
     
     
-    # Add hover tool
+# Add hover tool
 hover = HoverTool()
 hover.tooltips = [("", "@gemeinde")]
 hover.renderers = [patches]
 p.add_tools(hover)
-    
-  
-    
-    #tap_tool = TapTool(callback=callback)
-    #p.add_tools(tap_tool)
-    
+
 p.toolbar.logo = None
 p.toolbar_location = None
 
-
-
-
-pp = column(p, sizing_mode="scale_width")
+pp = column(p, sizing_mode="stretch_width")
+#col1, col2, col3= st.columns([8, 0.5, 2])
+#with col1:
 streamlit_bokeh(pp, use_container_width=True, key="plot1")
